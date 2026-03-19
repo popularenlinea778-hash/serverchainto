@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAISON VÉRITÉ — Moda Contemporánea | Tienda de Ropa en Colombia</title>
+  <meta name="description" content="MAISON VÉRITÉ es tu destino de moda contemporánea en Colombia. Descubre colecciones exclusivas de ropa femenina y masculina, con sucursales en Medellín, Bogotá y Cali. Estilo auténtico, calidad superior." />
+  <meta name="keywords" content="tienda de ropa, moda Colombia, ropa mujer, ropa hombre, colecciones de moda, ropa Medellín, ropa Bogotá, ropa Cali, moda contemporánea, tienda de moda" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="MAISON VÉRITÉ — Moda Contemporánea" />
+  <meta property="og:description" content="Colecciones exclusivas de moda contemporánea. Visita nuestras sucursales en Colombia." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --cream: #FAF8F4;
+      --warm-white: #F5F2ED;
+      --beige: #E8E0D4;
+      --sand: #C9B99A;
+      --taupe: #8B7D6B;
+      --charcoal: #2C2C2C;
+      --black: #0F0F0F;
+      --accent: #C4A882;
+      --accent-dark: #9A7E5A;
+      --red: #C0392B;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+      --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--charcoal);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--sand); border-radius: 2px; }
+
+    /* ─── TYPOGRAPHY ─── */
+    h1, h2, h3, h4 { font-family: var(--serif); font-weight: 400; line-height: 1.15; }
+    h1 { font-size: clamp(2.8rem, 7vw, 6rem); letter-spacing: -0.01em; }
+    h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
+    h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
+    p { font-size: 0.95rem; color: var(--taupe); line-height: 1.75; }
+
+    a { text-decoration: none; color: inherit; }
+    img { width: 100%; display: block; }
+
+    /* ─── HEADER / NAV ─── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 5%;
+      background: rgba(250, 248, 244, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s, padding 0.3s;
+    }
+    .nav.scrolled { border-color: var(--beige); padding: 1rem 5%; }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: var(--black);
+      text-transform: uppercase;
+    }
+    .nav-logo span { font-style: italic; color: var(--accent-dark); }
+
+    .nav-links {
+      display: flex; gap: 2.5rem; list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      position: relative;
+      padding-bottom: 3px;
+      transition: color var(--transition);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 100%;
+      height: 1px;
+      background: var(--accent-dark);
+      transition: right var(--transition);
+    }
+    .nav-links a:hover { color: var(--black); }
+    .nav-links a:hover::after { right: 0; }
+
+    .nav-cta {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--black);
+      color: var(--cream);
+      padding: 0.65rem 1.6rem;
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition);
+    }
+    .nav-cta:hover { background: var(--accent-dark); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column; gap: 5px; cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 1.5px;
+      background: var(--black);
+      transition: var(--transition);
+    }
+
+    /* ─── MOBILE MENU ─── */
+    .mobile-menu {
+      display: none;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--cream);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      font-style: italic;
+      color: var(--charcoal);
+      transition: color var(--transition);
+    }
+    .mobile-menu a:hover { color: var(--accent-dark); }
+    .mobile-close {
+      position: absolute; top: 1.5rem; right: 5%;
+      font-size: 2rem; cursor: pointer; color: var(--charcoal);
+      background: none; border: none;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
+    }
+    .hero-left {
+      background: var(--black);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 5% 6% 7%;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-left::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80') center/cover;
+      opacity: 0.55;
+      transition: transform 8s ease;
+    }
+    .hero:hover .hero-left::before { transform: scale(1.04); }
+    .hero-left-content { position: relative; z-index: 1; }
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sand);
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--sand);
+      padding: 0.3rem 0.8rem;
+      width: fit-content;
+    }
+    .hero-left h1 { color: var(--cream); font-weight: 300; }
+    .hero-left h1 em { display: block; font-style: italic; color: var(--accent); }
+    .hero-left p {
+      color: rgba(250,248,244,0.7);
+      margin: 1.5rem 0 2.5rem;
+      max-width: 38ch;
+      font-size: 0.9rem;
+    }
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cream);
+      border: 1px solid rgba(250,248,244,0.4);
+      padding: 1rem 2rem;
+      transition: background var(--transition), border-color var(--transition);
+      width: fit-content;
+    }
+    .hero-btn:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+    .hero-btn svg { transition: transform var(--transition); }
+    .hero-btn:hover svg { transform: translateX(4px); }
+
+    .hero-right {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+    }
+    .hero-right-top {
+      background: var(--warm-white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10% 8%;
+      border-bottom: 1px solid var(--beige);
+    }
+    .hero-right-top h2 { font-size: clamp(1.4rem, 2.5vw, 2.2rem); }
+    .hero-right-top p { margin-top: 0.8rem; font-size: 0.88rem; }
+
+    .hero-right-bottom {
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-right-bottom img {
+      height: 100%; object-fit: cover;
+      transition: transform 8s ease;
+    }
+    .hero:hover .hero-right-bottom img { transform: scale(1.04); }
+
+    /* ─── MARQUEE ─── */
+    .marquee-strip {
+      background: var(--black);
+      color: var(--cream);
+      padding: 0.9rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-inner {
+      display: inline-flex;
+      animation: marquee 28s linear infinite;
+    }
+    .marquee-inner span {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0 3rem;
+    }
+    .marquee-inner span.dot { color: var(--accent); padding: 0; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ─── SECTIONS ─── */
+    section { scroll-margin-top: 80px; }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .section-label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 1rem;
+    }
+    .section-header h2 { color: var(--black); }
+    .section-header p {
+      max-width: 52ch;
+      margin: 1rem auto 0;
+      font-size: 0.9rem;
+    }
+    .section-divider {
+      width: 48px; height: 1px;
+      background: var(--sand);
+      margin: 1.2rem auto 0;
+    }
+
+    /* ─── COLLECTIONS ─── */
+    #colecciones {
+      padding: 7rem 5%;
+      background: var(--cream);
+    }
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--beige);
+    }
+    .collection-card {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      cursor: pointer;
+      border-right: 1px solid var(--beige);
+    }
+    .collection-card:last-child { border-right: none; }
+    .collection-card img {
+      height: 100%; object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .collection-card:hover img { transform: scale(1.07); }
+    .collection-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(15,15,15,0.85) 0%, transparent 55%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem 1.8rem;
+    }
+    .collection-tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .collection-overlay h3 { color: var(--cream); font-weight: 300; font-size: 1.6rem; }
+    .collection-overlay p { color: rgba(250,248,244,0.7); font-size: 0.82rem; margin-top: 0.4rem; }
+    .collection-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--cream);
+      margin-top: 1.2rem;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity var(--transition), transform var(--transition);
+    }
+    .collection-card:hover .collection-link { opacity: 1; transform: translateY(0); }
+
+    /* ─── CATALOG ─── */
+    #catalogo {
+      padding: 7rem 5%;
+      background: var(--warm-white);
+    }
+    .filter-bar {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 3.5rem;
+    }
+    .filter-btn {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.55rem 1.4rem;
+      border: 1px solid var(--beige);
+      background: transparent;
+      cursor: pointer;
+      color: var(--taupe);
+      transition: all var(--transition);
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--black);
+      color: var(--cream);
+      border-color: var(--black);
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .product-card {
+      background: var(--cream);
+      cursor: pointer;
+      transition: transform var(--transition);
+    }
+    .product-card:hover { transform: translateY(-4px); }
+    .product-img-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      background: var(--beige);
+    }
+    .product-img-wrap img { height: 100%; object-fit: cover; transition: transform 0.7s ease; }
+    .product-card:hover .product-img-wrap img { transform: scale(1.06); }
+    .product-badge {
+      position: absolute; top: 0.8rem; left: 0.8rem;
+      font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      background: var(--black); color: var(--cream);
+    }
+    .product-badge.sale { background: var(--red); }
+    .product-wishlist {
+      position: absolute; top: 0.8rem; right: 0.8rem;
+      width: 32px; height: 32px;
+      background: rgba(250,248,244,0.9);
+      border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .product-card:hover .product-wishlist { opacity: 1; }
+    .product-info { padding: 1rem 0.2rem 0.5rem; }
+    .product-category {
+      font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--sand); margin-bottom: 0.4rem;
+    }
+    .product-name { font-family: var(--serif); font-size: 1.05rem; color: var(--charcoal); }
+    .product-price-row {
+      display: flex; align-items: center; gap: 0.7rem;
+      margin-top: 0.6rem;
+    }
+    .product-price { font-size: 0.95rem; font-weight: 500; color: var(--black); }
+    .product-price-old { font-size: 0.82rem; color: var(--sand); text-decoration: line-through; }
+    .product-colors {
+      display: flex; gap: 5px; margin-top: 0.7rem;
+    }
+    .color-dot {
+      width: 12px; height: 12px; border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.15);
+      cursor: pointer;
+    }
+    .product-sizes {
+      display: flex; gap: 5px; margin-top: 0.6rem; flex-wrap: wrap;
+    }
+    .size-tag {
+      font-size: 0.65rem; letter-spacing: 0.08em;
+      border: 1px solid var(--beige);
+      padding: 0.15rem 0.45rem;
+      color: var(--taupe);
+    }
+
+    /* ─── PRODUCT MODAL ─── */
+    .modal-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(15,15,15,0.7);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--cream);
+      max-width: 900px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      animation: fadeInUp 0.3s ease;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .modal-img {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+    .modal-img img { height: 100%; object-fit: cover; }
+    .modal-body { padding: 3rem 2.5rem; position: relative; }
+    .modal-close {
+      position: absolute; top: 1rem; right: 1.2rem;
+      font-size: 1.5rem; cursor: pointer; background: none; border: none;
+      color: var(--taupe); transition: color var(--transition);
+    }
+    .modal-close:hover { color: var(--black); }
+    .modal-category {
+      font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent-dark); margin-bottom: 0.8rem;
+    }
+    .modal-name { font-family: var(--serif); font-size: 2rem; color: var(--black); line-height: 1.2; }
+    .modal-price { font-size: 1.4rem; font-weight: 500; color: var(--black); margin: 1.2rem 0; }
+    .modal-desc { font-size: 0.88rem; color: var(--taupe); line-height: 1.75; margin-bottom: 1.5rem; }
+    .modal-label {
+      font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--charcoal); margin-bottom: 0.6rem; font-weight: 500;
+    }
+    .modal-sizes {
+      display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.5rem;
+    }
+    .modal-size {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--beige);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .modal-size:hover, .modal-size.active {
+      background: var(--black); color: var(--cream); border-color: var(--black);
+    }
+    .modal-colors-row { display: flex; gap: 8px; margin-bottom: 2rem; }
+    .modal-color-dot {
+      width: 22px; height: 22px; border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color var(--transition);
+    }
+    .modal-color-dot.active, .modal-color-dot:hover { border-color: var(--black); }
+    .modal-buy-btn {
+      width: 100%;
+      padding: 1.1rem;
+      background: var(--black);
+      color: var(--cream);
+      border: none; cursor: pointer;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: background var(--transition);
+      margin-bottom: 0.8rem;
+    }
+    .modal-buy-btn:hover { background: var(--accent-dark); }
+    .modal-material {
+      font-size: 0.82rem; color: var(--taupe);
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--beige);
+      margin-top: 0.5rem;
+    }
+    .size-guide-link {
+      font-size: 0.75rem; color: var(--taupe);
+      text-decoration: underline; cursor: pointer;
+      display: inline-block; margin-top: 0.5rem;
+    }
+
+    /* ─── BRANCHES ─── */
+    #sucursales {
+      padding: 7rem 5%;
+      background: var(--cream);
+    }
+    .branches-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--beige);
+      border: 2px solid var(--beige);
+    }
+    .branch-card {
+      background: var(--cream);
+      overflow: hidden;
+      transition: transform var(--transition);
+    }
+    .branch-img {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+    .branch-img img { height: 100%; object-fit: cover; transition: transform 0.7s ease; }
+    .branch-card:hover .branch-img img { transform: scale(1.05); }
+    .branch-info { padding: 2rem; }
+    .branch-city {
+      font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent-dark); margin-bottom: 0.5rem;
+    }
+    .branch-info h3 { font-family: var(--serif); font-size: 1.5rem; color: var(--black); margin-bottom: 1.2rem; }
+    .branch-detail {
+      display: flex; align-items: flex-start; gap: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+    .branch-detail svg { flex-shrink: 0; margin-top: 2px; color: var(--sand); }
+    .branch-detail p { font-size: 0.85rem; color: var(--taupe); margin: 0; }
+    .branch-detail strong { color: var(--charcoal); font-weight: 500; }
+
+    /* ─── ABOUT ─── */
+    #nosotros {
+      padding: 8rem 5%;
+      background: var(--black);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8%;
+      align-items: center;
+    }
+    .about-img-wrap { position: relative; }
+    .about-img-wrap img { aspect-ratio: 4/5; object-fit: cover; }
+    .about-img-accent {
+      position: absolute;
+      bottom: -2rem; right: -2rem;
+      width: 60%;
+      aspect-ratio: 1;
+      border: 1px solid var(--accent);
+      z-index: -1;
+    }
+    .about-content .section-label { color: var(--sand); text-align: left; }
+    .about-content h2 { color: var(--cream); }
+    .about-content .section-divider { margin: 1.2rem 0; }
+    .about-content p { color: rgba(250,248,244,0.65); margin-bottom: 1.2rem; }
+    .about-stats {
+      display: flex; gap: 3rem; margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(250,248,244,0.12);
+    }
+    .about-stat-num {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      color: var(--accent);
+      font-weight: 300;
+      line-height: 1;
+    }
+    .about-stat-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sand); margin-top: 0.4rem; }
+
+    /* ─── CONTACT ─── */
+    #contacto {
+      padding: 7rem 5%;
+      background: var(--warm-white);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 6%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .contact-info h3 { font-family: var(--serif); font-size: 1.8rem; color: var(--black); margin-bottom: 1.5rem; }
+    .contact-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    .contact-item-icon {
+      width: 40px; height: 40px;
+      background: var(--beige);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-item-text strong { display: block; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--charcoal); margin-bottom: 0.2rem; }
+    .contact-item-text p { font-size: 0.88rem; margin: 0; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--charcoal); }
+    .form-group input, .form-group textarea, .form-group select {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--beige);
+      background: var(--cream);
+      color: var(--charcoal);
+      outline: none;
+      transition: border-color var(--transition);
+      resize: none;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      border-color: var(--sand);
+    }
+    .form-submit {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 1rem;
+      background: var(--black);
+      color: var(--cream);
+      border: none; cursor: pointer;
+      transition: background var(--transition);
+    }
+    .form-submit:hover { background: var(--accent-dark); }
+    .form-note { font-size: 0.78rem; color: var(--taupe); }
+
+    /* ─── LEGAL ─── */
+    #legal {
+      padding: 6rem 5%;
+      background: var(--cream);
+    }
+    .legal-tabs {
+      display: flex; gap: 0; border-bottom: 1px solid var(--beige);
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    .legal-tab {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.8rem 1.8rem;
+      background: none; border: none; cursor: pointer;
+      color: var(--taupe);
+      border-bottom: 2px solid transparent;
+      transition: all var(--transition);
+      margin-bottom: -1px;
+    }
+    .legal-tab.active { color: var(--black); border-bottom-color: var(--black); }
+    .legal-content { display: none; max-width: 720px; }
+    .legal-content.active { display: block; }
+    .legal-content h3 { font-family: var(--serif); font-size: 1.5rem; color: var(--black); margin-bottom: 1rem; }
+    .legal-content h4 { font-family: var(--serif); font-size: 1.1rem; color: var(--charcoal); margin: 1.8rem 0 0.7rem; }
+    .legal-content p { font-size: 0.88rem; color: var(--taupe); margin-bottom: 1rem; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--black);
+      color: var(--cream);
+      padding: 5rem 5% 2.5rem;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 4%;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(250,248,244,0.1);
+    }
+    .footer-brand .nav-logo { font-size: 1.3rem; margin-bottom: 1.2rem; color: var(--cream); }
+    .footer-brand p { font-size: 0.85rem; color: rgba(250,248,244,0.5); line-height: 1.75; max-width: 30ch; }
+    .footer-socials { display: flex; gap: 1rem; margin-top: 1.5rem; }
+    .social-link {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(250,248,244,0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(250,248,244,0.6);
+      transition: all var(--transition);
+      font-size: 0.8rem;
+    }
+    .social-link:hover { background: var(--accent-dark); border-color: var(--accent-dark); color: var(--cream); }
+
+    .footer-col h4 {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(250,248,244,0.5);
+      margin-bottom: 1.2rem;
+      font-weight: 500;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .footer-col ul a {
+      font-size: 0.88rem;
+      color: rgba(250,248,244,0.7);
+      transition: color var(--transition);
+    }
+    .footer-col ul a:hover { color: var(--cream); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-bottom p { font-size: 0.78rem; color: rgba(250,248,244,0.35); margin: 0; }
+    .footer-legal { display: flex; gap: 1.5rem; }
+    .footer-legal a { font-size: 0.75rem; color: rgba(250,248,244,0.35); transition: color var(--transition); }
+    .footer-legal a:hover { color: rgba(250,248,244,0.65); }
+
+    /* ─── ANNOUNCEMENT BAR ─── */
+    .announcement {
+      background: var(--accent-dark);
+      color: var(--cream);
+      text-align: center;
+      padding: 0.55rem 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ─── PAGE SECTIONS ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── SIZE GUIDE MODAL ─── */
+    .size-guide-modal {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(15,15,15,0.8);
+      z-index: 3000;
+      align-items: center; justify-content: center;
+      padding: 2rem;
+    }
+    .size-guide-modal.open { display: flex; }
+    .size-guide-content {
+      background: var(--cream);
+      padding: 2.5rem;
+      max-width: 600px; width: 100%;
+      max-height: 80vh; overflow-y: auto;
+      animation: fadeInUp 0.25s ease;
+    }
+    .size-guide-content h3 { font-family: var(--serif); font-size: 1.6rem; margin-bottom: 1.5rem; }
+    .size-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .size-table th, .size-table td {
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--beige);
+      text-align: center;
+    }
+    .size-table th { background: var(--charcoal); color: var(--cream); font-weight: 400; letter-spacing: 0.1em; font-size: 0.75rem; }
+    .size-table tr:nth-child(even) td { background: var(--warm-white); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1100px) {
+      .products-grid { grid-template-columns: repeat(3, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { min-height: 70vh; }
+      .hero-right { display: none; }
+      .collections-grid { grid-template-columns: 1fr 1fr; }
+      .collections-grid .collection-card:last-child { display: none; }
+      .branches-grid { grid-template-columns: 1fr; }
+      #nosotros { grid-template-columns: 1fr; }
+      .about-img-wrap { display: none; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .modal { grid-template-columns: 1fr; }
+      .modal-img { aspect-ratio: 16/9; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .collections-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-stats { gap: 2rem; }
+      #nosotros { padding: 5rem 5%; }
+    }
+    @media (max-width: 480px) {
+      .products-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+      .branches-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── TOAST ─── */
+    .toast {
+      position: fixed; bottom: 2rem; right: 2rem;
+      background: var(--black); color: var(--cream);
+      padding: 1rem 1.5rem;
+      font-size: 0.85rem;
+      z-index: 9999;
+      transform: translateY(120%);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .toast.show { transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement">
+  Envío gratis en compras mayores a $150.000 COP · Aplican condiciones
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav" role="navigation" aria-label="Navegación principal">
+  <a href="#inicio" class="nav-logo" aria-label="MAISON VÉRITÉ inicio">MAISON <span>VÉRITÉ</span></a>
+  <ul class="nav-links">
+    <li><a href="#colecciones">Colecciones</a></li>
+    <li><a href="#catalogo">Catálogo</a></li>
+    <li><a href="#sucursales">Sucursales</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="#catalogo" class="nav-cta">Ver colección</a>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menú móvil">
+  <button class="mobile-close" id="mobileClose" aria-label="Cerrar menú">✕</button>
+  <a href="#colecciones" onclick="closeMobileMenu()">Colecciones</a>
+  <a href="#catalogo" onclick="closeMobileMenu()">Catálogo</a>
+  <a href="#sucursales" onclick="closeMobileMenu()">Sucursales</a>
+  <a href="#nosotros" onclick="closeMobileMenu()">Nosotros</a>
+  <a href="#contacto" onclick="closeMobileMenu()">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section id="inicio" class="hero" role="banner">
+  <div class="hero-left">
+    <div class="hero-left-content">
+      <span class="hero-tag">Nueva colección · 2025</span>
+      <h1>Viste tu<em>verdad.</em></h1>
+      <p>Prendas diseñadas para quienes saben que el estilo no es ostentación, es identidad. Colecciones contemporáneas con materiales de calidad superior.</p>
+      <a href="#catalogo" class="hero-btn">
+        Explorar catálogo
+        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 6H17M12 1L17 6L12 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-top">
+      <span class="section-label" style="text-align:left; margin-bottom:0.5rem;">3 sucursales</span>
+      <h2>Encuéntranos en Medellín, Bogotá y Cali</h2>
+      <p>Espacios diseñados para una experiencia de moda íntima y sin presiones.</p>
+    </div>
+    <div class="hero-right-bottom">
+      <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=700&q=80" alt="Interior tienda de ropa MAISON VÉRITÉ" loading="lazy"/>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-inner">
+    <span>Nuevas colecciones</span><span class="dot">·</span>
+    <span>Calidad superior</span><span class="dot">·</span>
+    <span>Moda contemporánea</span><span class="dot">·</span>
+    <span>Cambios y devoluciones</span><span class="dot">·</span>
+    <span>3 sucursales en Colombia</span><span class="dot">·</span>
+    <span>Envío nacional</span><span class="dot">·</span>
+    <span>Nuevas colecciones</span><span class="dot">·</span>
+    <span>Calidad superior</span><span class="dot">·</span>
+    <span>Moda contemporánea</span><span class="dot">·</span>
+    <span>Cambios y devoluciones</span><span class="dot">·</span>
+    <span>3 sucursales en Colombia</span><span class="dot">·</span>
+    <span>Envío nacional</span><span class="dot">·</span>
+  </div>
+</div>
+
+<!-- COLECCIONES DESTACADAS -->
+<section id="colecciones" aria-labelledby="colecciones-title">
+  <div class="section-header reveal">
+    <span class="section-label">Temporada actual</span>
+    <h2 id="colecciones-title">Colecciones destacadas</h2>
+    <div class="section-divider"></div>
+    <p>Cada pieza cuenta una historia. Descubre nuestras líneas más recientes, diseñadas con materiales seleccionados y un enfoque en la durabilidad.</p>
+  </div>
+  <div class="collections-grid reveal">
+    <article class="collection-card" tabindex="0" role="article" aria-label="Colección Essentials">
+      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80" alt="Modelo con ropa de la colección Essentials" loading="lazy"/>
+      <div class="collection-overlay">
+        <p class="collection-tag">Mujer</p>
+        <h3>Essentials</h3>
+        <p>Básicos rediseñados para el día a día.</p>
+        <a href="#catalogo" class="collection-link">
+          Ver colección →
+        </a>
+      </div>
+    </article>
+    <article class="collection-card" tabindex="0" role="article" aria-label="Colección Urban Edit">
+      <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80" alt="Modelo con ropa de la colección Urban Edit hombre" loading="lazy"/>
+      <div class="collection-overlay">
+        <p class="collection-tag">Hombre</p>
+        <h3>Urban Edit</h3>
+        <p>Contemporáneo y funcional para la ciudad.</p>
+        <a href="#catalogo" class="collection-link">
+          Ver colección →
+        </a>
+      </div>
+    </article>
+    <article class="collection-card" tabindex="0" role="article" aria-label="Colección Linen Studio">
+      <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80" alt="Modelo con ropa de la colección Linen Studio" loading="lazy"/>
+      <div class="collection-overlay">
+        <p class="collection-tag">Unisex</p>
+        <h3>Linen Studio</h3>
+        <p>Lino natural, texturas honestas.</p>
+        <a href="#catalogo" class="collection-link">
+          Ver colección →
+        </a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- CATÁLOGO -->
+<section id="catalogo" aria-labelledby="catalogo-title">
+  <div class="section-header reveal">
+    <span class="section-label">Productos</span>
+    <h2 id="catalogo-title">Catálogo completo</h2>
+    <div class="section-divider"></div>
+    <p>Explora nuestra selección de prendas. Todos los precios incluyen IVA. Consulta disponibilidad de tallas en tienda.</p>
+  </div>
+
+  <div class="filter-bar reveal" role="group" aria-label="Filtrar por categoría">
+    <button class="filter-btn active" data-filter="all">Todo</button>
+    <button class="filter-btn" data-filter="mujer">Mujer</button>
+    <button class="filter-btn" data-filter="hombre">Hombre</button>
+    <button class="filter-btn" data-filter="nuevo">Nuevo</button>
+    <button class="filter-btn" data-filter="sale">Descuentos</button>
+  </div>
+
+  <div class="products-grid reveal" id="productsGrid">
+    <!-- Products rendered by JS -->
+  </div>
+</section>
+
+<!-- SUCURSALES -->
+<section id="sucursales" aria-labelledby="sucursales-title">
+  <div class="section-header reveal">
+    <span class="section-label">Dónde encontrarnos</span>
+    <h2 id="sucursales-title">Nuestras sucursales</h2>
+    <div class="section-divider"></div>
+    <p>Visítanos en cualquiera de nuestras tiendas físicas. Nuestro equipo estará encantado de atenderte.</p>
+  </div>
+  <div class="branches-grid reveal">
+
+    <article class="branch-card" aria-label="Sucursal Medellín">
+      <div class="branch-img">
+        <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=700&q=80" alt="Fachada tienda MAISON VÉRITÉ Medellín El Poblado" loading="lazy"/>
+      </div>
+      <div class="branch-info">
+        <p class="branch-city">Antioquia</p>
+        <h3>Medellín — El Poblado</h3>
+        <div class="branch-detail">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <p>Carrera 35 #8A-12, El Poblado<br/>Medellín, Antioquia</p>
+        </div>
+        <div class="branch-detail">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <p><strong>Lun – Sáb:</strong> 10:00 AM – 8:00 PM<br/><strong>Dom:</strong> 11:00 AM – 6:00 PM</p>
+        </div>
+        <div class="branch-detail">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.21 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <p><a href="tel:+576044123456">+57 (604) 412-3456</a></p>
+        </div>
+      </div>
+    </article>
+
+    <article class="branch-card" aria-label="Sucursal Bogotá">
+      <div class="branch-img">
+        <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=700&q=80" alt="Interior tienda MAISON VÉRITÉ Bogotá Zona Rosa" loading="lazy"/>
+      </div>
+      <div class="branch-info">
+        <p class="branch-city">Cundinamarca</p>
+        <h3>Bogotá — Zona Rosa</h3>
+        <div class="branch-detail">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <p>Calle 82 #11-37, Zona Rosa<br/>Bogotá D.C.</p>
+        </div>
+        <div class="branch-detail">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <p><strong>Lun – Sáb:</strong> 10:00 AM – 8:30 PM<br/><strong>Dom:</strong> 11:00 AM – 7:00 PM</p>
+        </div>
+        <div class="branch-detail">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.21 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <p><a href="tel:+576014561234">+57 (601) 456-1234</a></p>
+        </div>
+      </div>
+    </article>
+
+    <article class="branch-card" aria-label="Sucursal Cali">
+      <div class="branch-img">
+        <img src="https://images.unsplash.com/photo-1604176354204-9268737828e4?w=700&q=80" alt="Interior tienda MAISON VÉRITÉ Cali Granada" loading="lazy"/>
+      </div>
+      <div class="branch-info">
+        <p class="branch-city">Valle del Cauca</p>
+        <h3>Cali — Granada</h3>
+        <div class="branch-detail">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <p>Avenida 9N #14-21, Granada<br/>Cali, Valle del Cauca</p>
+        </div>
+        <div class="branch-detail">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <p><strong>Lun – Sáb:</strong> 10:00 AM – 8:00 PM<br/><strong>Dom:</strong> 11:00 AM – 6:00 PM</p>
+        </div>
+        <div class="branch-detail">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.21 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <p><a href="tel:+576024789012">+57 (602) 478-9012</a></p>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- SOBRE NOSOTROS -->
+<section id="nosotros" aria-labelledby="nosotros-title">
+  <div class="about-img-wrap reveal">
+    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=700&q=80" alt="Mujer eligiendo ropa en tienda MAISON VÉRITÉ" loading="lazy"/>
+    <div class="about-img-accent" aria-hidden="true"></div>
+  </div>
+  <div class="about-content reveal">
+    <span class="section-label">Nuestra historia</span>
+    <h2 id="nosotros-title">Nacimos en Medellín.<br/>Crecimos con intención.</h2>
+    <div class="section-divider" style="margin-left:0; background: var(--sand);"></div>
+    <p style="margin-top:1.5rem;">En 2016, abrimos nuestra primera tienda en El Poblado con una convicción simple: la ropa bien hecha no debería ser un lujo inaccesible. Empezamos con una colección de 12 prendas básicas y hoy contamos con más de 200 referencias por temporada.</p>
+    <p>Trabajamos con proveedores locales y seleccionamos materiales que priorizamos por su durabilidad y procedencia responsable. No hacemos promesas que no podamos cumplir. Hacemos ropa que dura, que sienta bien y que cuenta quién eres sin exagerar.</p>
+    <p>Cada temporada es una conversación con nuestros clientes, no un dictado de tendencias.</p>
+    <div class="about-stats">
+      <div>
+        <div class="about-stat-num">9</div>
+        <div class="about-stat-label">Años de trayectoria</div>
+      </div>
+      <div>
+        <div class="about-stat-num">3</div>
+        <div class="about-stat-label">Sucursales físicas</div>
+      </div>
+      <div>
+        <div class="about-stat-num">200+</div>
+        <div class="about-stat-label">Prendas por temporada</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" aria-labelledby="contacto-title">
+  <div class="section-header reveal">
+    <span class="section-label">Atención al cliente</span>
+    <h2 id="contacto-title">¿Tienes alguna pregunta?</h2>
+    <div class="section-divider"></div>
+    <p>Respondemos todos los mensajes en un tiempo máximo de 24 horas hábiles.</p>
+  </div>
+  <div class="contact-grid reveal">
+    <div class="contact-info">
+      <h3>Estamos aquí para ayudarte</h3>
+      <div class="contact-item">
+        <div class="contact-item-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7D6B" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="contact-item-text">
+          <strong>Correo electrónico</strong>
+          <p><a href="mailto:hola@maisonverite.co">hola@maisonverite.co</a></p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7D6B" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.21 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div class="contact-item-text">
+          <strong>Teléfono</strong>
+          <p><a href="tel:+576044123456">+57 (604) 412-3456</a><br/>Lun – Vie: 9:00 AM – 6:00 PM</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7D6B" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <div class="contact-item-text">
+          <strong>WhatsApp</strong>
+          <p><a href="https://wa.me/573001234567" target="_blank" rel="noopener">+57 300 123 4567</a><br/>Respuesta en menos de 2 horas</p>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form" id="contactForm" novalidate>
+      <div class="form-group">
+        <label for="contactName">Nombre</label>
+        <input type="text" id="contactName" name="name" placeholder="Tu nombre completo" required autocomplete="name"/>
+      </div>
+      <div class="form-group">
+        <label for="contactEmail">Correo electrónico</label>
+        <input type="email" id="contactEmail" name="email" placeholder="tu@correo.com" required autocomplete="email"/>
+      </div>
+      <div class="form-group">
+        <label for="contactTopic">Asunto</label>
+        <select id="contactTopic" name="topic">
+          <option value="">Selecciona un tema</option>
+          <option value="producto">Consulta sobre un producto</option>
+          <option value="pedido">Estado de un pedido</option>
+          <option value="cambio">Cambio o devolución</option>
+          <option value="sucursal">Información de sucursales</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="contactMsg">Mensaje</label>
+        <textarea id="contactMsg" name="message" rows="4" placeholder="¿En qué podemos ayudarte?" required></textarea>
+      </div>
+      <p class="form-note">Al enviar este formulario, aceptas nuestra <a href="#legal" style="text-decoration:underline;">política de privacidad</a>. Solo usamos tus datos para responder tu consulta.</p>
+      <button type="submit" class="form-submit">Enviar mensaje</button>
+    </form>
+  </div>
+</section>
+
+<!-- LEGAL -->
+<section id="legal" aria-labelledby="legal-title">
+  <div class="section-header reveal">
+    <span class="section-label">Información legal</span>
+    <h2 id="legal-title">Políticas y condiciones</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="reveal">
+    <div class="legal-tabs" role="tablist" aria-label="Secciones legales">
+      <button class="legal-tab active" data-tab="privacidad" role="tab" aria-selected="true" aria-controls="tab-privacidad">Política de privacidad</button>
+      <button class="legal-tab" data-tab="terminos" role="tab" aria-selected="false" aria-controls="tab-terminos">Términos y condiciones</button>
+      <button class="legal-tab" data-tab="cambios" role="tab" aria-selected="false" aria-controls="tab-cambios">Cambios y devoluciones</button>
+    </div>
+
+    <div class="legal-content active" id="tab-privacidad" role="tabpanel">
+      <h3>Política de privacidad</h3>
+      <p><em>Última actualización: marzo de 2025</em></p>
+      <h4>Datos que recopilamos</h4>
+      <p>Únicamente recopilamos los datos que nos proporcionas voluntariamente al realizar una compra, contactarnos o suscribirte a nuestras comunicaciones: nombre, correo electrónico, dirección de envío y teléfono. No recopilamos datos de navegación más allá de los estrictamente necesarios para el funcionamiento del sitio.</p>
+      <h4>Uso de la información</h4>
+      <p>Tus datos se utilizan exclusivamente para procesar pedidos, responder consultas y, si lo autorizaste expresamente, enviarte información sobre novedades y promociones. Nunca vendemos ni cedemos tu información a terceros con fines comerciales.</p>
+      <h4>Derechos del usuario</h4>
+      <p>Tienes derecho a acceder, rectificar o eliminar tus datos personales en cualquier momento. Envía tu solicitud a <a href="mailto:privacidad@maisonverite.co">privacidad@maisonverite.co</a> y responderemos en un plazo máximo de 15 días hábiles.</p>
+      <h4>Seguridad</h4>
+      <p>Implementamos medidas de seguridad técnicas y organizativas para proteger tu información. Sin embargo, ningún sistema es infalible; por ello te recomendamos no compartir contraseñas ni información sensible a través de canales no oficiales.</p>
+    </div>
+
+    <div class="legal-content" id="tab-terminos" role="tabpanel">
+      <h3>Términos y condiciones</h3>
+      <p><em>Última actualización: marzo de 2025</em></p>
+      <h4>Condiciones de compra</h4>
+      <p>Al realizar una compra en MAISON VÉRITÉ — ya sea en tienda física o a través de nuestros canales digitales — aceptas estas condiciones. Los precios publicados incluyen IVA y están expresados en pesos colombianos (COP). Nos reservamos el derecho de corregir errores tipográficos en precios o descripciones.</p>
+      <h4>Disponibilidad de productos</h4>
+      <p>El inventario se actualiza regularmente pero puede existir un breve margen de diferencia entre la disponibilidad mostrada y la real. En caso de que un producto no esté disponible después de confirmar tu compra, te contactaremos de inmediato para ofrecerte una alternativa o reembolso completo.</p>
+      <h4>Métodos de pago</h4>
+      <p>Aceptamos efectivo, tarjetas débito y crédito (Visa, Mastercard, American Express) y transferencias bancarias. Las compras en tienda también aceptan pagos con Nequi y Daviplata.</p>
+      <h4>Propiedad intelectual</h4>
+      <p>Todos los contenidos de este sitio — imágenes, textos, logotipos y diseños — son propiedad de MAISON VÉRITÉ o están licenciados para su uso. Está prohibida su reproducción sin autorización escrita.</p>
+    </div>
+
+    <div class="legal-content" id="tab-cambios" role="tabpanel">
+      <h3>Política de cambios y devoluciones</h3>
+      <p><em>Última actualización: marzo de 2025</em></p>
+      <h4>Plazo para cambios</h4>
+      <p>Aceptamos cambios dentro de los <strong>30 días calendario</strong> posteriores a la fecha de compra. Las prendas deben estar sin usar, con sus etiquetas originales y en perfectas condiciones.</p>
+      <h4>¿Qué se puede cambiar?</h4>
+      <p>Puedes cambiar cualquier prenda de temporada vigente por otra talla, color o referencia de igual o mayor valor (en este último caso, pagas la diferencia). No se realizan cambios en prendas de temporadas anteriores ni en artículos de venta final claramente marcados.</p>
+      <h4>Devoluciones por defecto de fábrica</h4>
+      <p>Si recibes una prenda con defecto de fabricación, tienes hasta <strong>60 días</strong> para reportarlo. Realizaremos el reemplazo o devolución total del dinero pagado, según prefieras, sin costo adicional.</p>
+      <h4>Proceso</h4>
+      <p>Para iniciar un cambio o devolución, acércate a cualquiera de nuestras sucursales con tu factura de compra o contáctanos por correo a <a href="mailto:cambios@maisonverite.co">cambios@maisonverite.co</a>. Te orientaremos en el proceso.</p>
+      <h4>Envíos y devoluciones</h4>
+      <p>Para compras realizadas por canales digitales, los costos de envío de devolución corren por cuenta del cliente, excepto cuando el motivo sea un defecto de fabricación, en cuyo caso MAISON VÉRITÉ asume los costos de logística.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo">MAISON <span>VÉRITÉ</span></div>
+      <p>Moda contemporánea hecha con honestidad. Tres sucursales en Colombia, una filosofía: vestir bien sin exagerar.</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+        </a>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok">TT</a>
+        <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Pinterest">P</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Tienda</h4>
+      <ul>
+        <li><a href="#colecciones">Colecciones</a></li>
+        <li><a href="#catalogo">Catálogo completo</a></li>
+        <li><a href="#catalogo">Mujer</a></li>
+        <li><a href="#catalogo">Hombre</a></li>
+        <li><a href="#catalogo">Novedades</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Información</h4>
+      <ul>
+        <li><a href="#nosotros">Sobre nosotros</a></li>
+        <li><a href="#sucursales">Sucursales</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#contacto">Atención al cliente</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#legal" onclick="openTab('privacidad')">Política de privacidad</a></li>
+        <li><a href="#legal" onclick="openTab('terminos')">Términos y condiciones</a></li>
+        <li><a href="#legal" onclick="openTab('cambios')">Cambios y devoluciones</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 MAISON VÉRITÉ. Todos los derechos reservados. NIT: 900.XXX.XXX-X</p>
+    <div class="footer-legal">
+      <a href="#legal" onclick="openTab('privacidad')">Privacidad</a>
+      <a href="#legal" onclick="openTab('terminos')">Términos</a>
+      <a href="#legal" onclick="openTab('cambios')">Devoluciones</a>
+    </div>
+  </div>
+</footer>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="productModal" role="dialog" aria-modal="true" aria-label="Detalle del producto">
+  <div class="modal" id="modalContent">
+    <div class="modal-img">
+      <img id="modalImg" src="" alt="" />
+    </div>
+    <div class="modal-body">
+      <button class="modal-close" id="modalClose" aria-label="Cerrar">✕</button>
+      <p class="modal-category" id="modalCategory"></p>
+      <h2 class="modal-name" id="modalName"></h2>
+      <div class="modal-price" id="modalPrice"></div>
+      <p class="modal-desc" id="modalDesc"></p>
+      <p class="modal-label">Talla</p>
+      <div class="modal-sizes" id="modalSizes"></div>
+      <a class="size-guide-link" onclick="openSizeGuide()">Ver guía de tallas</a>
+      <p class="modal-label" style="margin-top:1.2rem;">Color</p>
+      <div class="modal-colors-row" id="modalColors"></div>
+      <button class="modal-buy-btn" onclick="addToCart()">Agregar al carrito</button>
+      <p class="modal-material" id="modalMaterial"></p>
+    </div>
+  </div>
+</div>
+
+<!-- SIZE GUIDE MODAL -->
+<div class="size-guide-modal" id="sizeGuideModal" role="dialog" aria-modal="true" aria-label="Guía de tallas">
+  <div class="size-guide-content">
+    <button class="modal-close" style="position:static; float:right; margin-bottom:1rem;" onclick="closeSizeGuide()" aria-label="Cerrar guía">✕</button>
+    <h3>Guía de tallas</h3>
+    <table class="size-table">
+      <thead>
+        <tr><th>Talla</th><th>Pecho (cm)</th><th>Cintura (cm)</th><th>Cadera (cm)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>XS</td><td>82–86</td><td>62–66</td><td>88–92</td></tr>
+        <tr><td>S</td><td>87–91</td><td>67–71</td><td>93–97</td></tr>
+        <tr><td>M</td><td>92–96</td><td>72–76</td><td>98–102</td></tr>
+        <tr><td>L</td><td>97–102</td><td>77–82</td><td>103–108</td></tr>
+        <tr><td>XL</td><td>103–108</td><td>83–88</td><td>109–114</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:1.2rem; font-size:0.82rem; color:var(--taupe);">Medidas en centímetros. En caso de duda, elige la talla mayor o consulta con nuestros asesores en tienda.</p>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+<script>
+  // ─── PRODUCTS DATA ───
+  const products = [
+    { id:1, name:'Blusa Esencial Lino', category:'mujer', price:89900, sizes:['XS','S','M','L','XL'], colors:['#F5F2ED','#2C2C2C','#C9B99A'], badge:'nuevo', img:'https://images.unsplash.com/photo-1594938298603-c8148c4b4dff?w=500&q=80', desc:'Blusa de corte relajado en lino 100% natural. Perfecta para el clima tropical colombiano.', material:'100% Lino natural. Lavado a mano o en frío. No centrifugar.' },
+    { id:2, name:'Pantalón Straight Crop', category:'mujer', price:145000, sizes:['XS','S','M','L'], colors:['#2C2C2C','#C9B99A','#8B7D6B'], badge:'', img:'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=500&q=80', desc:'Corte recto a tobillo con tiro alto. Confeccionado en gabardina italiana de peso medio.', material:'78% Algodón, 20% Poliéster, 2% Elastano. Lavado a máquina 30°C.' },
+    { id:3, name:'Chaqueta Structured', category:'hombre', price:289000, sizes:['S','M','L','XL'], colors:['#2C2C2C','#8B7D6B'], badge:'nuevo', img:'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&q=80', desc:'Chaqueta de estructura firme con forro interior. Versátil para ocasiones formales e informales.', material:'60% Lana, 35% Poliéster, 5% Elastano. Limpieza en seco recomendada.' },
+    { id:4, name:'Vestido Midi Plisado', category:'mujer', price:195000, oldPrice:245000, sizes:['XS','S','M','L','XL'], colors:['#FAF8F4','#C9B99A','#8B7D6B'], badge:'sale', img:'https://images.unsplash.com/photo-1568251188392-f66c89ab4a0a?w=500&q=80', desc:'Vestido midi con pliegues fluidos. Tejido de viscosa con caída impecable.', material:'100% Viscosa. Lavado a mano en agua fría. No tumble dry.' },
+    { id:5, name:'Camiseta Oversized Pima', category:'hombre', price:75000, sizes:['S','M','L','XL'], colors:['#FAF8F4','#2C2C2C','#C9B99A'], badge:'', img:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=80', desc:'Camiseta oversize en algodón Pima peruano de 200g. Suavidad y durabilidad excepcionales.', material:'100% Algodón Pima. Lavado a máquina 30°C. Plancha a temperatura baja.' },
+    { id:6, name:'Falda Slit Satinada', category:'mujer', price:125000, sizes:['XS','S','M','L'], colors:['#2C2C2C','#FAF8F4'], badge:'nuevo', img:'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=500&q=80', desc:'Falda larga con abertura lateral en tela satinada. Elegancia sin esfuerzo.', material:'95% Poliéster, 5% Elastano. Lavado a mano. No planchar directamente.' },
+    { id:7, name:'Bermuda Cargo Relaxed', category:'hombre', price:115000, sizes:['S','M','L','XL'], colors:['#8B7D6B','#2C2C2C','#C9B99A'], badge:'', img:'https://images.unsplash.com/photo-1594938374182-a55e92e4e0d4?w=500&q=80', desc:'Bermuda cargo de corte relajado en twill de algodón. Cómoda y funcional para el día a día.', material:'100% Algodón twill. Lavado a máquina 40°C. Apta para secadora.' },
+    { id:8, name:'Blazer Oversize Crudo', category:'mujer', price:265000, oldPrice:320000, sizes:['XS','S','M','L'], colors:['#F5F2ED','#2C2C2C'], badge:'sale', img:'https://images.unsplash.com/photo-1548624313-0396884b9ef4?w=500&q=80', desc:'Blazer de corte masculino en mezcla de lana cruda. La pieza clave de la temporada.', material:'55% Lana, 40% Poliéster, 5% Viscosa. Limpieza en seco recomendada.' },
+  ];
+
+  let activeFilter = 'all';
+  let selectedSize = '';
+  let selectedColorIdx = 0;
+  let currentProduct = null;
+
+  // ─── RENDER PRODUCTS ───
+  function renderProducts(filter) {
+    const grid = document.getElementById('productsGrid');
+    const filtered = filter === 'all' ? products :
+      filter === 'nuevo' ? products.filter(p => p.badge === 'nuevo') :
+      filter === 'sale' ? products.filter(p => p.badge === 'sale') :
+      products.filter(p => p.category === filter);
+
+    grid.innerHTML = filtered.map(p => `
+      <article class="product-card" onclick="openProduct(${p.id})" tabindex="0" role="article"
+        aria-label="${p.name}, $${p.price.toLocaleString('es-CO')} COP"
+        onkeydown="if(event.key==='Enter')openProduct(${p.id})">
+        <div class="product-img-wrap">
+          <img src="${p.img}" alt="${p.name} — MAISON VÉRITÉ" loading="lazy"/>
+          ${p.badge ? `<span class="product-badge ${p.badge}">${p.badge === 'nuevo' ? 'Nuevo' : 'Sale'}</span>` : ''}
+          <button class="product-wishlist" onclick="event.stopPropagation();showToast('Agregado a favoritos')" aria-label="Agregar a favoritos">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2C2C2C" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </button>
+        </div>
+        <div class="product-info">
+          <p class="product-category">${p.category === 'mujer' ? 'Mujer' : 'Hombre'}</p>
+          <h3 class="product-name">${p.name}</h3>
+          <div class="product-price-row">
+            <span class="product-price">$${p.price.toLocaleString('es-CO')}</span>
+            ${p.oldPrice ? `<span class="product-price-old">$${p.oldPrice.toLocaleString('es-CO')}</span>` : ''}
+          </div>
+          <div class="product-colors">
+            ${p.colors.map(c => `<div class="color-dot" style="background:${c}" title="${c}"></div>`).join('')}
+          </div>
+          <div class="product-sizes">
+            ${p.sizes.slice(0,4).map(s => `<span class="size-tag">${s}</span>`).join('')}
+            ${p.sizes.length > 4 ? `<span class="size-tag">+${p.sizes.length-4}</span>` : ''}
+          </div>
+        </div>
+      </article>
+    `).join('');
+  }
+
+  renderProducts('all');
+
+  // ─── FILTERS ───
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderProducts(btn.dataset.filter);
+      btn.setAttribute('aria-pressed','true');
+    });
+  });
+
+  // ─── PRODUCT MODAL ───
+  function openProduct(id) {
+    const p = products.find(x => x.id === id);
+    if (!p) return;
+    currentProduct = p;
+    selectedSize = '';
+    selectedColorIdx = 0;
+
+    document.getElementById('modalImg').src = p.img;
+    document.getElementById('modalImg').alt = p.name;
+    document.getElementById('modalCategory').textContent = p.category === 'mujer' ? 'Mujer' : 'Hombre';
+    document.getElementById('modalName').textContent = p.name;
+    document.getElementById('modalPrice').innerHTML = `$${p.price.toLocaleString('es-CO')} COP${p.oldPrice ? ` <span style="font-size:1rem;color:var(--sand);text-decoration:line-through;font-weight:300;">$${p.oldPrice.toLocaleString('es-CO')}</span>` : ''}`;
+    document.getElementById('modalDesc').textContent = p.desc;
+    document.getElementById('modalMaterial').innerHTML = `<strong>Material:</strong> ${p.material}`;
+
+    document.getElementById('modalSizes').innerHTML = p.sizes.map(s =>
+      `<button class="modal-size" onclick="selectSize('${s}',this)">${s}</button>`
+    ).join('');
+
+    document.getElementById('modalColors').innerHTML = p.colors.map((c,i) =>
+      `<div class="modal-color-dot ${i===0?'active':''}" style="background:${c}" onclick="selectColor(${i},this)" title="${c}"></div>`
+    ).join('');
+
+    document.getElementById('productModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function selectSize(size, el) {
+    document.querySelectorAll('.modal-size').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+    selectedSize = size;
+  }
+
+  function selectColor(idx, el) {
+    document.querySelectorAll('.modal-color-dot').forEach(d => d.classList.remove('active'));
+    el.classList.add('active');
+    selectedColorIdx = idx;
+  }
+
+  function addToCart() {
+    if (!selectedSize) { showToast('Por favor selecciona una talla'); return; }
+    showToast(`¡${currentProduct.name} agregado al carrito!`);
+    document.getElementById('productModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('modalClose').addEventListener('click', () => {
+    document.getElementById('productModal').classList.remove('open');
+    document.body.style.overflow = '';
+  });
+  document.getElementById('productModal').addEventListener('click', e => {
+    if (e.target === document.getElementById('productModal')) {
+      document.getElementById('productModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // ─── SIZE GUIDE ───
+  function openSizeGuide() { document.getElementById('sizeGuideModal').classList.add('open'); }
+  function closeSizeGuide() { document.getElementById('sizeGuideModal').classList.remove('open'); }
+  document.getElementById('sizeGuideModal').addEventListener('click', e => {
+    if (e.target === document.getElementById('sizeGuideModal')) closeSizeGuide();
+  });
+
+  // ─── LEGAL TABS ───
+  function openTab(tab) {
+    document.querySelectorAll('.legal-tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+    document.querySelectorAll('.legal-content').forEach(c => c.classList.remove('active'));
+    const btn = document.querySelector(`[data-tab="${tab}"]`);
+    if (btn) { btn.classList.add('active'); btn.setAttribute('aria-selected','true'); }
+    const content = document.getElementById(`tab-${tab}`);
+    if (content) content.classList.add('active');
+  }
+  document.querySelectorAll('.legal-tab').forEach(btn => {
+    btn.addEventListener('click', () => openTab(btn.dataset.tab));
+  });
+
+  // ─── TOAST ───
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2800);
+  }
+
+  // ─── NAV SCROLL ───
+  window.addEventListener('scroll', () => {
+    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // ─── MOBILE MENU ───
+  document.getElementById('hamburgerBtn').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.add('open');
+    document.getElementById('hamburgerBtn').setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  });
+  document.getElementById('mobileClose').addEventListener('click', closeMobileMenu);
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('hamburgerBtn').setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+
+  // ─── CONTACT FORM ───
+  document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    showToast('¡Mensaje enviado! Te contactaremos pronto.');
+    e.target.reset();
+  });
+
+  // ─── REVEAL ON SCROLL ───
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.transitionDelay = `${i * 0.08}s`;
+        entry.target.classList.add('visible');
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // ─── KEYBOARD ESCAPE ───
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.getElementById('productModal').classList.remove('open');
+      document.getElementById('sizeGuideModal').classList.remove('open');
+      closeMobileMenu();
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+</body>
+</html>
